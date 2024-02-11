@@ -1,0 +1,113 @@
+
+<%
+free_url = BlackStack::Funnel.url_to_go_free(@login, 'funnels.main')
+trial = !@login.user.account.disabled_trial
+trial_url_1 = '/settings/filter_create_invoice?item_number=leads.offer.1&n=1'
+%>
+
+<div class='titles'>
+	<center>
+		<h1 class='offer'>One Time Offer</h1>
+		<h3 class='offer'>Cold Emails Masterclass + 318 Verified Emails.</h3>
+	</center>
+</div>
+
+<br/>
+
+<section class="row-fluid">
+	<div class='span2 plans'></div>
+	<div class='span4 plans'>
+		<div class="plan">
+			<h2 class="plan-title">
+			Free
+			</h2>
+			<p class="plan-price">
+				$0
+				<span class="plan-unit"></span>
+			</p>
+			<ul class="plan-features">
+				<li class="plan-feature" style='text-align:left;'>
+					<i class='icon-ok' style='color:green;text-align:center;'></i> 75 <span class="plan-feature-unit">lookups</span><br/>
+					<span class="plan-feature-name">One-Time.</span><br/>
+					<br/>
+					<i class='icon-remove' style='color:red;'></i><span class="plan-feature-unit"> Cold Emails</span> Masterclass<br/>
+					<span class="plan-feature-name">Low-Priority support.</span><br/>
+					<br/>
+					<i class='icon-remove' style='color:red;'></i> Dedicated<span class="plan-feature-unit"> Support</span><br/>
+					<span class="plan-feature-name">Low-Priority support.</span><br/>
+					<br/>
+					<i class='icon-remove' style='color:red;text-align:center;'></i> <span class="plan-feature-unit">Built-In</span> Email Verification<br/>
+					<span class="plan-feature-name">Built-In Email Verification. </span><br/>
+					<br/>
+					<i class='icon-remove' style='color:red;text-align:center;'></i> Direct Phone #s <br/>
+					<span class="plan-feature-name">Direct Phone Numbers Scraping.</span><br/>
+					<br/>
+					<i class='icon-remove' style='color:red;text-align:center;'></i> AI Scraping <br/>
+					<span class="plan-feature-name">AI Website Scraping.</span><br/>
+					<br/>
+					<i class='icon-remove' style='color:red;text-align:center;'></i> Credits <span class="plan-feature-unit">Roll Over</span><br/>
+					<span class="plan-feature-name">So long as you remain an active subscription.</span><br/>
+					<br/>
+				</li>
+			</ul>
+			<a href="<%=free_url%>" class="plan-button">Go Free</a>
+			</div>
+		</div>
+		<div class='span4 plans'>
+			<div class="plan plan-highlight">
+			<!--
+			<p class="plan-recommended">93% OFF</p>
+			-->
+			<h2 class="plan-title">
+				Premium
+			</h2>
+			<p class="plan-price">
+				$7 <span style='font-size:18px;color:gray;font-weight:normal;'><strike>$75</strike></span>
+				<span class="plan-unit">per month</span>
+			</p>
+			<ul class="plan-features">
+				<li class="plan-feature" style='text-align:left;'>
+					<i class='icon-ok' style='color:green;text-align:center;'></i> 318 <span class="plan-feature-unit">lookups / mo.</span><br/>
+					<span class="plan-feature-name"><b>0.022&#162;</b> per lookup.</span><br/>
+					<br/>
+					<i class='icon-ok' style='color:green;'></i><span class="plan-feature-unit"> Cold Emails</span> Masterclass<br/>
+					<span class="plan-feature-name">Low-Priority support.</span><br/>
+					<br/>
+					<i class='icon-ok' style='color:green;'></i> Dedicated<span class="plan-feature-unit"> Support</span><br/>
+					<span class="plan-feature-name">Low-Priority support.</span><br/>
+					<br/>
+					<i class='icon-ok' style='color:green;text-align:center;'></i> <span class="plan-feature-unit">Built-In</span> Email Verification<br/>
+					<span class="plan-feature-name">Built-In Email Verification.</span><br/>
+					<br/>
+					<i class='icon-ok' style='color:green;text-align:center;'></i> Direct Phone #s <span class='badge badge-blue'>+1&cent;</span> <br/>
+					<span class="plan-feature-name">Direct Phone Numbers Scraping.</span><br/>
+					<br/>
+					<i class='icon-ok' style='color:green;text-align:center;'></i> AI Scraping <span class='badge badge-blue'>+1&cent;</span> <br/>
+					<span class="plan-feature-name">AI Website Scraping.</span><br/>
+					<br/>
+					<i class='icon-ok' style='color:green;text-align:center;'></i> Credits <span class="plan-feature-unit">Roll Over</span><br/>
+					<span class="plan-feature-name">So long as you remain an active subscription.</span><br/>
+					<br/>
+				</li>
+			</ul>
+			<a href="<%=trial_url_1%>" class="plan-button">Go Premium</a>
+			</div>
+		</div>
+		<div class='span2 plans'></div>
+	</section>
+
+	<br/>
+
+	<section class="row-fluid">
+		<div class='span2'></div>
+		<div class='span6' style='text-align:left;font-size:18px;line-height:25px;vertical-align:top;'>
+			<span>The <b>free plan</b> includes all the benefits of <b>FreeLeadsData</b>, except for <b>Email Verification</b> and <b>AI Scraping</b>.</span>
+		</div>
+		<div class='span2' style='text-align:center;'>
+			<a class='btn btn-large btn-black' href='<%=free_url%>'>Choose Free Plan.</a>
+		</div>
+		<div class='span2'></div>
+	</section>
+
+</section>
+
