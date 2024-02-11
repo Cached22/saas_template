@@ -1,0 +1,88 @@
+<%
+err = params[:err]
+msg = params[:msg]
+%>
+
+<%
+if BlackStack::Funnel.recaptcha2_site_key
+%>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<%
+end # if BlackStack::Funnel.recaptcha2_site_key
+%>
+
+<div style='position:absolute;left:50px;top:15px;height:50px;'>
+	<a href='/'><img src="/core/images/logo.png" height="50px" title="ConnectionSphere Logo" /></a>
+</div>
+
+<br/>
+<br/>
+<br/>
+
+<section class='box span10'>	
+	<%
+	if err!=nil
+	%>
+	<div class="alert alert-error">
+	<%=err.to_s.encode_html%>
+	</div>
+	<%
+	end # err
+	%>
+
+	<%
+	if msg!=nil
+	%>
+	<div class="alert alert-info">
+		<a href="#" class="close" data-dismiss="alert"><i class='icon-remove-sign'></i></a><%=msg.encode_html%>
+	</div>
+	<%
+	end # msg
+	%>
+
+	<span align='left'>
+		<h4>Recover your password</b></h4>
+	</span>
+
+	<form action="recover" method="post">
+		<input type='hidden' id='recaptcha_response' name='recaptcha_response' value='' />
+		<fieldset>
+			<div class="fields">
+				<input type="text" class='input-xlarge' name="email" placeholder="Email" id="id_email" tabindex="1" onfocus="$(this).select();" />
+			</div>
+				
+			<%
+			if BlackStack::Funnel.recaptcha2_site_key
+			%>
+			<div class="g-recaptcha" data-sitekey="<%=BlackStack::Funnel.recaptcha2_site_key%>" data-callback='recaptcha_callback'></div>
+			<%
+			end # if BlackStack::Funnel.recaptcha2_site_key
+			%>
+
+			<button type="submit" id='submit' name='submit' class="btn btn-primary" tabindex="4" <%=BlackStack::Funnel.recaptcha2_site_key ? 'disabled' : ''%>>Recover</button>		</fieldset>
+	</form>
+
+	<div>
+		<br/>
+		<p>Could you remember?</br><a href='./login'>Log In here</a>.</p>
+		<br/>
+		<p>Don't have an account?<br/><a href='./signup'>Sign Up Here</a>.</p>
+	</div>
+</section>
+
+<br/>
+<br/>
+<br/>
+
+<script type="text/javascript">
+	function recaptcha_callback() {
+		//alert("callback working");
+		$('#submit').prop("disabled", false);
+		$('#recaptcha_response').val(grecaptcha.getResponse());
+	}
+
+	$(document).ready(function() {
+		$('input, textarea').placeholder();
+		document.getElementById("id_email").focus();
+	});
+</script>
